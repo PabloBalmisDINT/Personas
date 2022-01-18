@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindowVM.cs" />
+    <Compile Include="Mensajes.cs" />
     <Compile Include="MostrarPersonasUserControl.xaml.cs">
       <DependentUpon>MostrarPersonasUserControl.xaml</DependentUpon>
     </Compile>
@@ -115,11 +116,13 @@
     <Compile Include="NacionalidadWindow.xaml.cs">
       <DependentUpon>NacionalidadWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NacionalidadWindowVM.cs" />
     <Compile Include="NavigationService.cs" />
     <Compile Include="NuevaPersonaUserControl.xaml.cs">
       <DependentUpon>NuevaPersonaUserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="NuevaPersonaUserControlVM.cs" />
+    <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

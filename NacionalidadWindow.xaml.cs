@@ -22,6 +22,7 @@ namespace Personas
         public NacionalidadWindow()
         {
             InitializeComponent();
+            this.DataContext = new NacionalidadWindowVM();
         }
 
         private void Aceptar_Button_Click(object sender, RoutedEventArgs e)

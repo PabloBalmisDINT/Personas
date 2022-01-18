@@ -1,17 +1,19 @@
 ﻿using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Personas
 {
-    class MostrarPersonasUserControlVM: ObservableObject
+    class MostrarPersonasUserControlVM: ObservableRecipient
     {
-        private List<String> personas;
+        private List<Persona> personas;
 
-        public List<String> Personas
+        public List<Persona> Personas
         {
             get { return personas; }
             set { SetProperty(ref personas, value); }
@@ -19,10 +21,16 @@ namespace Personas
 
         public MostrarPersonasUserControlVM()
         {
-            personas = new List<string>();
-            personas.Add("Pietro - 30 - Italiana");
-            personas.Add("Julia - 25 - Española");
-            personas.Add("Sophie - 35 - Francesa");
+            Personas = new List<Persona>();
+
+            WeakReferenceMessenger.Default.Register<NuevaPersonaMessage>(this, (r, m) =>
+            {
+                Personas.Add(m.Value);
+            });
+
+            Personas.Add(new Persona("Pietro", 30, "Italiana"));
+            Personas.Add(new Persona("Julia", 25, "Española"));
+            Personas.Add(new Persona("Sophie", 35, "Francesa"));
         }
     }
 }

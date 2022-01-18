@@ -12,9 +12,9 @@
         Width="230">
     <StackPanel>
         <TextBlock>Nacionalidad</TextBlock>
-        <TextBox></TextBox>
+        <TextBox Text="{Binding Path=Nacionalidad}"></TextBox>
         <StackPanel Orientation="Horizontal">
-            <Button x:Name="Aceptar_Button" IsDefault="True" Click="Aceptar_Button_Click">Aceptar</Button>
+            <Button x:Name="Aceptar_Button" IsDefault="True" Click="Aceptar_Button_Click" Command="{Binding Path=NuevaNacionalidadCommand}">Aceptar</Button>
             <Button IsCancel="True">Cancelar</Button>
         </StackPanel>
     </StackPanel>
