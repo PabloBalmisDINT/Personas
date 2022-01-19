@@ -9,6 +9,11 @@ namespace Personas
 {
     class NavigationService
     {
+
+        MostrarPersonasUserControl mostrarPersonasUserControl = new MostrarPersonasUserControl();
+
+        
+
         internal UserControl CaragarVistaNuevaPersona()
         {
             return new NuevaPersonaUserControl();
@@ -16,7 +21,7 @@ namespace Personas
 
         internal UserControl CaragarVistaMostrarPersonas()
         {
-            return new MostrarPersonasUserControl();
+            return mostrarPersonasUserControl;
         }
     }
 }

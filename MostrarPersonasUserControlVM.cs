@@ -24,14 +24,14 @@ namespace Personas
         {
             Personas = new ObservableCollection<Persona>();
 
+            Personas.Add(new Persona("Pietro", 30, "Italiana"));
+            Personas.Add(new Persona("Julia", 25, "Española"));
+            Personas.Add(new Persona("Sophie", 35, "Francesa"));
+
             WeakReferenceMessenger.Default.Register<NuevaPersonaMessage>(this, (r, m) =>
             {
                 Personas.Add(m.Value);
             });
-
-            Personas.Add(new Persona("Pietro", 30, "Italiana"));
-            Personas.Add(new Persona("Julia", 25, "Española"));
-            Personas.Add(new Persona("Sophie", 35, "Francesa"));
         }
     }
 }
