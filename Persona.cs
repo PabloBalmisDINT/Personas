@@ -33,6 +33,8 @@ namespace Personas
             set { nacionalidad = value; }
         }
 
+        public Persona() { }
+
         public Persona(string nombre, int edad,string nacionalidad)
         {
             Nombre = nombre;

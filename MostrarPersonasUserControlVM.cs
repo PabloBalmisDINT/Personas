@@ -2,6 +2,7 @@
 using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,9 @@ namespace Personas
 {
     class MostrarPersonasUserControlVM: ObservableRecipient
     {
-        private List<Persona> personas;
+        private ObservableCollection<Persona> personas;
 
-        public List<Persona> Personas
+        public ObservableCollection<Persona> Personas
         {
             get { return personas; }
             set { SetProperty(ref personas, value); }
@@ -21,7 +22,7 @@ namespace Personas
 
         public MostrarPersonasUserControlVM()
         {
-            Personas = new List<Persona>();
+            Personas = new ObservableCollection<Persona>();
 
             WeakReferenceMessenger.Default.Register<NuevaPersonaMessage>(this, (r, m) =>
             {

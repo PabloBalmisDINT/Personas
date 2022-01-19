@@ -3,6 +3,7 @@ using Microsoft.Toolkit.Mvvm.Input;
 using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,33 +14,18 @@ namespace Personas
     class NuevaPersonaUserControlVM: ObservableRecipient
     {
         //Propiedades
-        private string nombre;
+        private Persona personaFormulario;
 
-        public string Nombre
+        public Persona PersonaFormulario
         {
-            get { return nombre; }
-            set { SetProperty(ref nombre, value); }
+            get { return personaFormulario; }
+            set { SetProperty(ref personaFormulario, value); }
         }
 
-        private int edad;
 
-        public int Edad
-        {
-            get { return edad; }
-            set { SetProperty(ref edad, value); }
-        }
+        private ObservableCollection<String> nacionalidades;
 
-        private string nacionalidad;
-
-        public string Nacionalidad
-        {
-            get { return nacionalidad; }
-            set { SetProperty(ref nacionalidad, value); }
-        }
-
-        private List<String> nacionalidades;
-
-        public List<String> Nacionalidades
+        public ObservableCollection<String> Nacionalidades
         {
             get { return nacionalidades; }
             set { SetProperty(ref nacionalidades, value); }
@@ -54,9 +40,10 @@ namespace Personas
 
         public NuevaPersonaUserControlVM()
         {
+            PersonaFormulario = new Persona();
             NuevaNacionalidadCommand = new RelayCommand(NuevaNacionalidad);
             NuevaPersonaCommand = new RelayCommand(NuevaPersona);
-            Nacionalidades = new List<string>();
+            Nacionalidades = new ObservableCollection<string>();
 
             WeakReferenceMessenger.Default.Register<NuevaNacionalidadMessage>(this, (r, m) =>
             {
@@ -75,8 +62,7 @@ namespace Personas
 
         public void NuevaPersona()
         {
-            Persona persona = new Persona(Nombre, Edad, Nacionalidad);
-            WeakReferenceMessenger.Default.Send(new NuevaPersonaMessage(persona));
+            WeakReferenceMessenger.Default.Send(new NuevaPersonaMessage(PersonaFormulario));
         }
     }
 }

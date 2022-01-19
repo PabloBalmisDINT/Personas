@@ -9,15 +9,15 @@
              d:DesignWidth="800">
     <StackPanel>
         <TextBlock>Nombre:</TextBlock>
-        <TextBox Text="{Binding Path=Nombre, Mode=OneWayToSource}"></TextBox>
+        <TextBox Text="{Binding Path=PersonaFormulario.Nombre, Mode=OneWayToSource}"></TextBox>
         <TextBlock>Edad:</TextBlock>
-        <TextBox Text="{Binding Path=Edad, Mode=OneWayToSource}"></TextBox>
+        <TextBox Text="{Binding Path=PersonaFormulario.Edad, Mode=OneWayToSource}"></TextBox>
         <TextBlock>Nacionalidad</TextBlock>
         <StackPanel Orientation="Horizontal">
             <ComboBox Width="150"
                       HorizontalAlignment="Left"
                       ItemsSource="{Binding Path=Nacionalidades}"
-                      SelectedItem="{Binding Path=Nacionalidad, Mode=OneWayToSource}"></ComboBox>
+                      SelectedItem="{Binding Path=PersonaFormulario.Nacionalidad, Mode=OneWayToSource}"></ComboBox>
             <Button Command="{Binding Path=NuevaNacionalidadCommand}">+</Button>
         </StackPanel>
         
