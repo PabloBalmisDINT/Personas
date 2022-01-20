@@ -4,14 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personas"
+        xmlns:propiedades="clr-namespace:Personas.Properties"
         mc:Ignorable="d"
+        Icon="./assets/personas.ico"
         Title="Personas" Height="450" Width="800">
     <DockPanel>
         <StackPanel Orientation="Horizontal"
                     DockPanel.Dock="Top">
-            <Button Command="{Binding Path=NuevaPersonaCommand}">Nueva persona</Button>
-            <Button Command="{Binding Path=MostrarPersonasCommand}">Listado de personas</Button>
+            <Button Command="{Binding Path=NuevaPersonaCommand}"
+                    Margin="5">Nueva persona</Button>
+            <Button Command="{Binding Path=MostrarPersonasCommand}"
+                    Margin="5">Listado de personas</Button>
         </StackPanel>
+        <TextBlock DockPanel.Dock="Bottom"
+                   Text="{Binding Source={x:Static propiedades:Settings.Default}, Path=Version}"></TextBlock>
         <Border BorderBrush="Black"
                 BorderThickness="3"
                 Margin="5">
